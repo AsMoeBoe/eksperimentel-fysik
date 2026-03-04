@@ -157,12 +157,25 @@ On the circular boundary, the angle of incidence, reflection and refraction will
 
 
 \chapter{Results}
+We gathered data for both polarizations (s and p), for 4 different setups: air to glass and glass to air for both reflected and transmitted light. For each of these we have noted and subtracted background as well as uncertainties.
+We have also fitted the theoretical curves to our measured curves, and found the Brewster angle from this. All the results can be found in the graph below:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{output.png}
+\caption{Measured data and fitted curves.}
+\end{figure}
+
+For the fitted curves here, $k$ represents $n_1/n_2$. This should be $0.667$ for air to glass and $1.5$ for glass to air.
 
 \chapter{Discussion}
-Our results generally follow the expected trends for both s- and p-polarized and for both air to glas and glass to air.
-- Vinklerne er lidt off på nogle, hvilket kan skyldes at prismen ikke var centreret, laserens udstrækning. 
-- Transmission ligger en del under, da prismet er uperfekt. Der tabes intensitet.
+Our results generally follow the expected trends for the theoretical curves. Especially for the reflected light for air to glass the curves match well. This is somewhat to be expected. As the prism isn't perfect, as soon as the light travels through the glass - 
+which happens in all cases except the one mentioned above - the intensity decreases because some energy is deposited inside the prism. There also seems to be a general trend of skewing the results somewhat to the right. This could be due to the prism not being perfectly
+centered, which would result in exactly this behaviour. Another source of errors is the fact that the laser was not a perfect pinprick. This was especially obvious for the transmitted beams, which were horizontally stretched. 
+This also results in a lower intensity than expected, as the laser deposited some of its energy beside the detector.
 
-
+All sources of errors aside, our results match the theoretical curves pretty well. The fitted curves are all quite close, even the ones where the data doesn't seem close to the theory. 
+This is a sign that the general tendency of the data matches the theory, wich some offset or error which is not proportional to the theory. This is a good sign - and we also get Brewster angles from
+the fitted curves that are very close to the theoretical Brewster angles - within the uncertainties presented (except for reflected air to glass). Our fitted $k$ values are also quite close, often within uncertainties.
 
 \end{document}
