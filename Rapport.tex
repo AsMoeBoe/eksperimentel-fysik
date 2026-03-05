@@ -16,6 +16,12 @@
 \usepackage{eufrak}
 \usepackage{yfonts}
 \usepackage{calligra}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage{float}
+\setlength{\columnsep}{0.5cm}
+
+\newgeometry{left=6cm,right=6cm}
 
 \begin{document}
 \author{Aksel W. Hallundbæk, Asger M. Bøgestrand, Oscar Fabricius}
@@ -24,79 +30,97 @@
 \date{\today}
 \maketitle
 
+\renewcommand{\bibname}{Bibliography}
+\renewcommand{\figurename}{Figure}
+
+\vspace{1cm}
+
+\begin{center}
+    \LARGE{\textbf{Abstract}}
+\end{center}
+
+When light hits an interface between two media with different refractive indices, some of the light is reflected and some is transmitted. The angle of transmission can be found using Snell's law, while the Fresnel relations provide information about how much of the intensity of the light is reflected and transmitted respectively. Two important angles exist; the critical angle, at which and above there is no transmitted light, and the Brewster angle, at which there is no reflected light for p-polarization.
+
+To test this experimentally, a laser and a photodetecter along with a semicircular prism were used. A refractive index of $1.53\pm0.03$ was found, compared to a table value of $1.5$. 
+
+The critical angle was found to be $43.4\pm0.6$, compared to a table value of $41.8$.
+
+The Brewster angles found were $54.5\pm0.81$ and $33.8\pm0.81$ for air to glass and glass to air respectively compared to table values of $56.3$ and $33.7$.
+
+The present deviations could be due to several factors, mostly an unperfect prism and experimental setup, but also not considering the fact that the light travels through two media boundaries for 6 out of 8 datasets.
+
+\newgeometry{margin=2.5cm}
+
+\newpage
+
+\begin{multicols}{2}
+
 \chapter{Introduction}
-\section{The law of reflection and Snell's law}
-When light hits the interface between two media of different refractive indices $n_1$ and $n_2$, both refraction and reflection of light can occur. The law of reflection, equation (1), and Snell's law, equation (2) give the angles of reflection and refraction for given angle of incidence and refractive indices. 
+\section{Reflection, transmission and Snell's law}
+When light hits the interface between two media of different refractive indices $n_1$ and $n_2$, both refraction and reflection of light can occur. 
 
-\begin{equation} \label{eq1}
+The law of reflection and Snell's law - as described in \cite{griff}, give the angles of reflection and refraction for a given angle of incidence and refractive indices. 
+\begin{equation} \label{eq:refl}
 \begin{split}
-\theta_{incidence} = \theta_{reflection}
+\theta_{I} = \theta_{R}
 \end{split}
 \end{equation}
-\begin{equation} \label{eq2}
+\begin{equation} \label{eq:snell}
 \begin{split}
-n_1\text{sin}\theta_1 = n_2\text{sin}\theta_2
+n_1\sin\theta_I = n_2\sin\theta_T
 \end{split}
 \end{equation}
 
-\begin{figure}[h]
+Where $n_1$ is the refractive index of the material from which the light is incoming, and $n_2$ is the refractive index of the material the light is travelling into.
+
+The three angles $\theta_I$, $\theta_R$ and $\theta_T$ represent the incoming angle, the reflected angle and the transmitted angle. These are measured in the plane of incidence, 
+which is spanned by the incoming beam and the normal of the surface that is reflected upon. The angles are shown in the figure below.
+
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth]{snellslaw.png}
-\caption{Reflection of light at the interface between two media.}
+\includegraphics[width=0.9\linewidth]{Sketch.png}
+\caption{Reflection and transmission of light at the interface between two media.}
 \end{figure}
 
 \section{Polarization}
-Light consists of mutually perpendicular oscillating electric and magnetic fields. The orientation of these oscillations is called the polarization of light. Unpolarized light consists of fields oscillating in all possible orientations, however any polarization can be broken into a combination of two orthogonal linear polarizations, i.e. if we can determine the behavior of light of each linear polarization, we can describe the behavior of light of any (complicated) polarization. 
+Light consists of mutually perpendicular oscillating electric and magnetic fields. The orientation of these oscillations is called the polarization of light. 
 
-Typically these orthogonal linear polarizations are chosen to be so-called s- and p-polarized light. The plane spanned by the incoming beam of light and the normal vector of the surface at the point of incidence is called the plane of incidence. If the polarization of the light is parallel to the plane of incidence, it is p-polarized. If the polarization of the light is perpendicular to the plane of incidence, it is s-polarized. 
+Unpolarized light consists of fields oscillating in all possible orientations, however any polarization can be broken into a combination of two orthogonal linear polarizations, i.e. if we can determine the behavior of light of each linear polarization, we can describe the behavior of light of any (complicated) polarization. 
+
+Typically these orthogonal linear polarizations are chosen to be so-called s- and p-polarized light. If the polarization of the light is parallel to the plane of incidence, it is p-polarized. If the polarization of the light is perpendicular to the plane of incidence, it is s-polarized (from the german word \textit{senkrecht} meaning vertical). 
 
 \section{The Fresnel relations}
-We are interested in the intensities of transmitted (refracted) and reflected light for s-polarized and p-polarized light respectively. The Fresnel relations give the amplitudes of transmitted and reflected light for the two polarizations, and from these one can find the corresponding intensities:
+We are interested in the intensities of transmitted (refracted) and reflected light for s-polarized and p-polarized light respectively. 
 
-\begin{equation} \label{eq3}
-\begin{split}
-R_p = \frac{\text{tan}^2(\theta_1-\theta_2)}{\text{tan}^2(\theta_1+\theta_2)}
-\end{split}
-\end{equation}
-\begin{equation} \label{eq4}
-\begin{split}
-T_p = \frac{\text{sin}2\theta_1\text{sin}2\theta_2}{\text{sin}^2(\theta_1+\theta_2)\text{cos}^2(\theta_1-\theta_2)}
-\end{split}
-\end{equation}
-\begin{equation} \label{eq5}
-\begin{split}
-R_s = \frac{\text{sin}^2(\theta_1-\theta_2)}{\text{sin}^2(\theta_1+\theta_2)}
-\end{split}
-\end{equation}
-\begin{equation} \label{eq6}
-\begin{split}
-T_p = \frac{\text{sin}2\theta_1\text{sin}2\theta_2}{\text{sin}^2(\theta_1+\theta_2)}
-\end{split}
-\end{equation}
+The Fresnel relations \cite{griff} give the amplitudes of transmitted and reflected light for the two polarizations, derived from the maxwell equations - from these one can find the corresponding intensities and divide by the total intensity:
+\begin{align}
+    R_p &= \frac{\tan^2(\theta_I-\theta_T)}{\tan^2(\theta_I+\theta_T)} \label{eq:rp1}\\
+    T_p &= \frac{\sin2\theta_I\sin2\theta_T}{\sin^2(\theta_I+\theta_T)\cos^2(\theta_I-\theta_T)} \label{eq:tp1}\\
+    R_s &= \frac{\sin^2(\theta_I-\theta_T)}{\sin^2(\theta_I+\theta_T)} \label{eq:rs1}\\
+    T_s &= \frac{\sin2\theta_I\sin2\theta_T}{\sin^2(\theta_I+\theta_T)}\label{eq:ts1}
+\end{align}
 
-Here $R$ and $T$ are the intensities of reflected and transmitted light and the indices $s$ and $p$ stand for s-polarized and p-polarized light. 
+Here $R$ and $T$ are the intensities divided by the total intensity of reflected and transmitted light and the indices $s$ and $p$ stand for s- and p-polarized light. 
+
+Using equation \ref{eq:snell}, the dependency on $\theta_T$ can be eliminated from the above equations, which results in the equations that can be used to plot the theoretical curves.
+
+These use the quantity $k=n_1/n_2$ for simplicity, which will also be used in this report.
 
 \section{Brewster's angle and the critical angle}
-For p-polarized light, there exists the so-called Brewster's angle, at which there is no reflected light. Brewster's angle is given by $R_p(\theta_B)=0$. There is no reflected light, when $\theta_1+\theta_2=\frac{\pi}{2}$. From Snell's law we then have:
+For p-polarized light, there exists the so-called Brewster's angle, at which there is no reflected light. Brewster's angle is given by $R_p(\theta_B)=0$. There is no reflected light when $\theta_I+\theta_T=\pi/2$ according to \cite{griff}. From Snell's law we then have:
+\begin{align}
+    n_1\sin\theta_B&=n_2\sin\left(\frac{\pi}{2}-\theta_B\right)=n_2\cos\theta_B \nonumber \\
+    &\implies\tan\theta_B = \frac{n_2}{n_1} \nonumber \\
+    &\implies\theta_B = \arctan\left(\frac{n_2}{n_1}\right) \label{eq:brew}
+\end{align}
 
-\begin{equation}
-\begin{split}
-n_1\text{sin}\theta_B=n_2\text{sin}(\frac{\pi}{2}-\theta_B)=n_2\text{cos}\theta_B \\
-\text{tan}\theta_B = \frac{n_2}{n_1}\\
-\theta_B = \text{arctan}(\frac{n_2}{n_1}) 
-\end{split}
+When light transitions from a medium of higher refractive index to one of lower refractive index there exists the critical angle for total internal reflection, i.e. no transmitted light. This occurs for both s- and p-polarized light. This angle, $\theta_C$, follows directly from Snell's law with $\theta_T = \frac{\pi}{2}$:
+
+\begin{equation} \label{eq:crit}
+    \theta_C = \arcsin\left(\frac{n_2}{n_1}\right)=\arcsin\left(\frac{1}{k}\right)
 \end{equation}
 
-When light transitions from a medium of higher refractive index to one of lower refractive index there exists the critical angle for total internal reflection, i.e. no transmitted light. This occurs for both s- and p-polarized light. This angle, $\theta_C$ follows directly from Snell's law with $\theta_2 = \frac{\pi}{2}$:
-
-\begin{equation}
-\begin{split}
-\theta_C = \text{arcsin}(\frac{n_2}{n_1})
-\end{split}    
-\end{equation}
-
-\section{Experiment}
-In case one knows the refractive index of one medium and can measure the four intensities of reflected and transmitted light for the two polarizations respectively as a function of the angle of incidence, one can determine the refractive index, Brewster's angle and the critical angle for the given second medium. This will be further discussed in the following section. 
+\newpage
 
 \chapter{Experimental setup}
 
@@ -104,83 +128,186 @@ In case one knows the refractive index of one medium and can measure the four in
 \begin{itemize}
 \item First lab session \\
 For the first lab session, we measured the refractive index of the glass prism.
-Then we measured the reflected intensity from air to glass. After the session we realized that the background intensity was changing with each measurement,
+Then we measured the reflected intensity from air to glass. 
+After the session we realized that the background intensity was changing with each measurement,
 and therefore we decided to improve our method for the second lab session.
 \item Second lab session \\
-For the second lab session, we improved our experimental method, and measured the reflected intensisty of both s and p polarized light, from air to glass and glass to air.
+For the second lab session, we measured both transmitted and reflected light, for both glass to air and vice versa, for both s- and p-polarized light. 
+This resulted in 8 datasets in total. We made sure to note the background and uncertainty for each measurement this time.
 \item Third lab session \\
-For the third lab session, we measured the transmitted intensity of both s and p polarized light, both form air to glass and from glass to air.
+The third lab session was not as much a lab session, as it was quite short because the second lab session actually included 1.5 hours of the second lab session. 
+For this session, we just talked about our processed data and discussed sources of error - no data was collected.
 \end{itemize}
 
 \section{Equipment}
 \begin{itemize}
 \item Laser
-\item Collimating Slits
+\item Collimating Slit
 \item Two Polarizers
 \item Glass prism
 \item Focusing Lens
 \item Photodetector
 \end{itemize}
 
-\section{General set-up and safety}
-The general set-up for the experiment is shown in figure 1. 
-The laser is placed on a rail, and the beam is collimated using the collimating slits. 
-The beam then passes through one polarizer at 45 degrees to ensure equal parts of s and p polarized light. 
-The beam then hits the glass prism, where it is either reflected or transmitted. The reflected or transmitted beam passes through a second polarizer to ensure that only one polarization component is measured, and is then focused onto a photodetector using a focusing lens.
-Both the prism and the photodetector are mounted on rotatable mounts, so that the angle of incidence can be varied.
-The laser is placed in parrallel to the table, and the beam is therefore not directed towards the eyes of the experimenters. The laser is turned on only when measurements are being taken, and care is taken to ensure that the beam does not reflect off any surfaces in a way that could direct it towards the eyes of the experimenters.
+\section{General setup and safety}
 
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.8\textwidth]{setup.JPG}
-\caption{General set-up for the experiment.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{SketchSetup.png}
+    \caption{Sketch of experimental setup.}
+    \label{fig:setup_sketch}
 \end{figure}
 
+A sketch of the experiment is shown in figure \ref{fig:setup_sketch}. 
+The laser is placed on a rail, and the beam is collimated using the collimating slit. 
+The beam then passes through one polarizer at 45 degrees to ensure equal parts of s- and p-polarized light. 
+
+The beam then hits the glass prism, where it is reflected and transmitted. 
+The reflected or transmitted beam, depending on what is currently being measured, passes through a second polarizer to ensure that only one polarization component is measured, and is then focused onto a photodetector using a focusing lens.
+
+Both the prism and the photodetector are mounted on rotatable mounts, so that the angle of incidence can be chosen, and the detector can be placed to catch either reflected or transmitted light.
+
+The laser is placed in parallel to the table, and the beam is therefore not directed towards the eyes of the experimenters. The laser is turned on only when measurements are being taken, and care is taken to ensure that the beam does not reflect off any surfaces in a way that could direct it towards the eyes of the experimenters.
+
+Both the photodetector and the laser are connected to power. The photodetector is also connected to a PicoScope, which in turn is connected to a computer, in order to extract data.
+
+Our setup can be seen below.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{setup.JPG}
+    \caption{Specific experimental setup.}
+    \label{fig:setup}
+\end{figure}
 
 \section{Method}
-The intensities of s- and p-polarized striking the detector for a series of different incident angles was measured. 
-For each measurement the background intensity was noted, 
-since the background intensity could depend on the orientation of the detector with respect to the windows and lamps. 
-Intensities were measured first for light going from air to glass and later vice versa. 
-This can be done since the prism is semicircular. Only on the flat surface will light be reflected and refracted. 
-On the circular boundary, the angle of incidence, reflection and refraction will always be zero,
- i.e. the interesting transition from one medium to another can be chosen simply by turning the prism 180 degrees. 
- 
- After setting the angle of incidence, the detector was moved to find the position of peak intensity for the reflected or transmitted beam.
- This was done by slowly moving the detector through the refelcted or refracted beam, noting the peak intensity,
- and then moving the detector back to that position of peak intensity. 
+There are several quantities of interest in this experiment: The refractive index of the glass prism, the brewster angle, and the critical angle.
 
+In order to find the refractive index, incident angles were measured with corresponding transmitted angles. This results in data that can then be fitted to a straight line in the form of equation \ref{eq:snell}, of which the slope will be $k$.
 
-\chapter{Results}
-We gathered data for both polarizations (s and p), for 4 different setups: air to glass and glass to air for both reflected and transmitted light. For each of these we have noted and subtracted background as well as uncertainties.
-We have also fitted the theoretical curves to our measured curves, and found the Brewster angle from this. All the results can be found in the graph below:
+The Brewster angle can be found by qualitatevely assessing the data and noting where the intensity of the reflected p-polarized light is zero. Another option is to fit the data to the theoretical curve letting $k$ vary, and then calculating the brewster angle from the found $k$ using equation \ref{eq:brew}.
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.95\textwidth]{output.png}
-\caption{Measured data and fitted curves.}
-\end{figure}
+Therefore, measurements consist of an incident angle, along with the intensity of the reflected or transmitted beam. Along with this, the polarization was noted, and the background intensity as well, since the background intensity could depend on the orientation of the detector with respect to the windows and lamps.
 
-For the fitted curves here, $k$ represents $n_1/n_2$. This should be $0.667$ for air to glass and $1.5$ for glass to air.
+So, in order to take a measurement, the platform with the prism was first rotated until the desired incident angle was achieved. Then, the platform with the detector was rotated until our picoscope showed a peak in intensity. Here, measurements were made: 
+
+\begin{enumerate}
+    \item First, the analyzing polarizer was set to p-polarization, and a dataset was taken in picoscope. Mean and uncertainty were noted.
+    \item Then the laser was blocked using a piece of paper, and background intensity including uncertainty was noted.
+    \item The polarizer was then rotated, to measure s-polarized light, and steps one to two were repeated
+\end{enumerate}
+
+This was done for a range of different incident angles, for four different setups: 
+
 \begin{itemize}
-\item Air to glass - reflected:
-fjfj
-\item Air to glass - transmitted:
-\item Glass to air - reflected:
-\item Glass to air - transmitted:
+    \item Reflected air to glass
+    \item Reflected glass to air
+    \item Transmitted air to glass
+    \item Transmitted glass to air
 \end{itemize}
 
+For each of these setups we also noted the total intensity of the laser for both s- and p-polarized light. This was done by removing the prism and pointing the laser directly into the detector. This was done both before and after measurements, and an average was taken to get the best value.
 
+It is possible to change from air to glass to glass to air since the prism is semicircular. Only (almost) on the flat surface will light be reflected and refracted. 
+On the circular boundary, the angle of incidence, reflection and refraction will always be zero,
+i.e. the interesting transition from one medium to another can be chosen simply by turning the prism 180 degrees. 
+
+\chapter{Results}
+
+\section{Refractive index}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth]{RefractiveIndex.png}
+\caption{Data for refractive index measurements and fitted curve.}
+\end{figure}
+
+A refractive index of $1.53\pm0.03$ was found, which was expected to be $1.5$ according to the manual \cite{manual}.
+
+\section{Critical and Brewster angles}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth]{A2GR.png}
+\caption{Measured data and fitted curves for reflected light, air to glass, s- and p-polarized}
+\label{fig:A2GR}
+\end{figure}
+
+The first dataset we collected was the one shown above (figure \ref{fig:A2GR}). We have concluded that the uncertainties on the measured angles are $\pm 1\deg$.
+
+The plotted expected Brewster angle is calculated using the refractive index found above, not the table value - which seemed to make more sense.
+
+All the other results can be seen on the next page in figure \ref{fig:data}.
+
+\end{multicols}
+
+\newpage
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{DataGraphs.png}
+\caption{Measured data and fitted curves.}
+\label{fig:data}
+\end{figure}
+
+\begin{multicols}{2}
+
+Note that for the air to glass measurements, the expected $k=0.65\pm 0.03$, while it is $k=1.53\pm0.03$ for glass to air (based on our measurement of refractive index). This is because the fraction $n_1/n_2$ is flipped between the two cases.
+
+The table value for $k$ in both cases would be $0.67$ and $1.5$ respectively.
+
+The average result of all the fitted refractive indices for the prism is $1.52\pm0.01$. 
+
+The average of the fitted critical angles for glass to air is $43.4\pm0.6$. The corresponding expected angle would be $40.9\pm0.02$ using our fitted refractive index, while for the table value it would be $41.8$.
+
+The average of the fitted brewster angles for air to glass is $54.5\pm0.81$, and for glass to air it is $33.8\pm0.81$. The corresponding expected angles would be $56.8\pm0.02$ and $33.2\pm0.01$, for table values of refractive index of glass it would be $56.3$ and $33.7$.
 
 \chapter{Discussion}
-Our results generally follow the expected trends for the theoretical curves. Especially for the reflected light for air to glass the curves match well. This is somewhat to be expected. Since the prism isn't perfect, as soon as the light travels through the glass - 
-which happens in all cases except the one mentioned above - the intensity decreases because some energy is deposited inside the prism. There also seems to be a general trend of skewing the results somewhat to the right. This could be due to the prism not being perfectly
-centered, which would result in exactly this behaviour. Another source of errors is the fact that the laser was not a perfect pinprick. This was especially obvious for the transmitted beams, which were horizontally stretched. 
-This also results in a lower intensity than expected, as the laser deposited some of its energy beside the detector.
+Our results generally seem to follow the trends for the theoretic curves. For reflection air to glass the curves fit remarkably well, with some apparent offset in the incident angles. This offset is also present in reflection glass to air, slightly more strongly. 
 
-All sources of errors aside, our results match the theoretical curves pretty well. The fitted curves are all quite close, even the ones where the data doesn't seem close to the theory. 
-This is a sign that the general tendency of the data matches the theory, wich some offset or error which is not proportional to the theory. This is a good sign - and we also get Brewster angles from
-the fitted curves that are very close to the theoretical Brewster angles - within the uncertainties presented (except for reflected air to glass). Our fitted $k$ values are also quite close, often within uncertainties.
+Another tendency for the reflected glass to air dataset seems to be that the measured curve is considerably below the expected curve. This is also true for the two datasets for transmitted light. An explanation of this could be that in all three cases the light must travel through the prism - here, intensity is expected to be lost to scattering, which is not a part of our model.
+
+Another factor which affects all three datasets except reflected glass to air is the fact that the light must travel through the prism; which means breaking its surface twice - both of these times light is reflected, which is intensity lost.
+
+An explanation of the alleged offsets of the incident angles is that the prism may not have been perfectly aligned in the center. 
+
+There also seems to be a general tendency for the two reflected datasets: The intensity is lower than the expected value with a factor that is proportional to the incident angle. This could be due to the extent of the laser. As it is not a perfect pinprick laser, the laser is stretched more and more the bigger the incident angle - therefore less of the total intensity enters the photodetector.
+
+The found refractive index ($1.53\pm0.03$) is quite close to the expected table value of $1.5$ for glass. Due to the prism not being a perfect prism, this is well within what we would expect the precision of the experiment to be.
+
+The refractive index found by fitting our data for all datasets is $1.52\pm0.01$, which is quite close to the one found in the start of the experiment. It is even closer to the expected table value, which could suggest that our method meant to find the brewster angle is actually better at finding the refractive index than our method to find the refractive index.
+
+The datasets for glass to air find an average critical angle of $43.4\pm0.6$, which is pretty close to the expected value of $40.9\pm+0.02$. If using table values the expected critical angle would be $41.8$, which is quite close to the one found by using the found refractive index - not quite as close to the average of the two measurements, because they both have a slightly higher one than expected.
+
+Our datasets for p-polarized light are generally all close to finding the correct Brewster angle, and their averages ($54.5\pm0.81$ and $33.8\pm0.81$) are both close to the expected Brewster angles using the found refractive index ($56.8\pm0.02$ and $33.2\pm0.01$), and even closer to the table values of $56.3$ and $33.7$.
+
+One thing to note is how well our fitted curves for transmission of p-polarized light (the blue datapoints) fit the theory. This seems weird at first, given that the data does not match the theory seemingly at all - but it is a sign that the underlying tendency of the data matches the theory very well. 
+
+This can be seen by looking at how the data behaves. For both of the graphs the data is somewhat constant, until it quickly drops. This is in contrast to the s-polarized light, which has more of a gradual dropoff.
+
+\chapter{Conclusion}
+
+This experiment served to investigate Snell's law and the Fresnel relations, derived from Maxwell's equations, along with two important angles that are direct consequences of these relations: The critical angle and the Brewster angle.
+
+The experimental comprised mainly a laser, a photodetector and a seimcircular glass prism. With these, it was possible to change incident angle and detect the intensity of the reflected and transmitted beams.
+
+First the refractive index of the prism was found to be $1.53\pm0.03$, which was in great agreement with the table value of $1.5$.
+
+The critical angle for a beam travelling from glass to air found was $43.4\pm0.6$, again in decent agreement with the table value of $41.8$.
+
+For the Brewster angle the found value for air to glass was $54.5\pm0.81$ compared to a table value of $56.3$ - again quite close. The Brewster angle for glass to air found was $33.8\pm0.81$ against a very close table value of $33.7$.
+
+The deviations in the measured data from the theory could be due to several factors. Some factors come from non-ideal equipment, for example a prism that isn't perfect, or a laser that has a non-trivial vertical or horizontal extent.
+
+The model used in this report is also not perfect. One example is the fact that the model does not consider that light travels first into the glass and afterwards out of, which results in two reflected beams - creating losses in intensity.
+
+That being said, all in all the results gathered are quite close to the theoretical values, and while the setup and model could be improved it produced acceptable results.
+
+\end{multicols}
+
+\newpage
+
+\bibliography{Rapport}
+\bibliographystyle{ieeetr}
 
 \end{document}
